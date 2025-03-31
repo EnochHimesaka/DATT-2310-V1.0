@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float moveSpeed, direction0, faceDirection0;
     public Boolean rightCommand, leftCommand, sitting;
     private GameObject panel, black;
@@ -15,6 +14,12 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Boolean gameover, gameoverTrigger;
     private int runningFactor;
+
+    // --- 👣 脚步音效相关 ---
+    public AudioSource stepSound;            // 拖入脚步声音效
+    public float stepInterval = 0.4f;        // 两步之间的时间
+    private float stepTimer = 0f;            // 内部计时器
+
     void Start()
     {
         if (GameObject.Find("MainDialoguePanel") != null)
@@ -25,15 +30,16 @@ public class PlayerController : MonoBehaviour
         {
             black = GameObject.Find("Black");
         }
+
         rigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
         faceDirection0 = 1;
         direction0 = 1;
         gameover = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Boolean running = Input.GetKey(KeyCode.LeftShift);
@@ -78,17 +84,37 @@ public class PlayerController : MonoBehaviour
 
         transform.localScale = new Vector3(faceDirection0, 1, 1);
 
-        //��Ϸʧ��
-        if (gameover && !gameoverTrigger) {
+        // 👣 播放脚步声（只在水平移动且Y方向接近0时）
+        bool isWalking = Mathf.Abs(velocity.x) > 0.1f && Mathf.Abs(rigidBody.linearVelocity.y) < 0.1f;
+
+        if (isWalking)
+        {
+            stepTimer += Time.fixedDeltaTime;
+            if (stepTimer >= stepInterval)
+            {
+                if (stepSound != null) stepSound.Play();
+                stepTimer = 0f;
+            }
+        }
+        else
+        {
+            stepTimer = stepInterval;
+        }
+
+        // 游戏失败
+        if (gameover && !gameoverTrigger)
+        {
             gameoverTrigger = true;
             anim.SetBool("hit", true);
             black.GetComponent<BlackCoverScript>().turnAlpha = false;
             Invoke("ReloadScene", 3f);
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Danger")) { 
+        if (collision.gameObject.CompareTag("Danger"))
+        {
             gameover = true;
         }
         if (collision.gameObject.CompareTag("Teleporter"))
@@ -99,20 +125,17 @@ public class PlayerController : MonoBehaviour
         {
             rigidBody.linearVelocity = new Vector3(-10, 0, 0);
         }
-
     }
 
-    public Boolean IsGameOver() {
+    public Boolean IsGameOver()
+    {
         return gameover;
     }
 
-    // 新接口：根据方向和持续时间执行强制移动
     public void ForceMove(string direction, float duration)
     {
-        // 先停止现有的移动命令，防止叠加
         StopMovingCommand();
 
-        // 根据传入的方向设置强制移动
         if (direction == "right")
         {
             rightCommand = true;
@@ -122,11 +145,9 @@ public class PlayerController : MonoBehaviour
             leftCommand = true;
         }
 
-        // 启动协程，duration 秒后停止强制移动
         StartCoroutine(StopForcedMovementAfter(duration));
     }
 
-    // 协程：等待指定时间后停止强制移动
     private IEnumerator StopForcedMovementAfter(float seconds)
     {
         yield return new WaitForSeconds(seconds);
@@ -139,7 +160,8 @@ public class PlayerController : MonoBehaviour
         leftCommand = false;
     }
 
-    public Boolean HasMovingCommand() {
+    public Boolean HasMovingCommand()
+    {
         return leftCommand || rightCommand;
     }
 

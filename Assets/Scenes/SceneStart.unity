@@ -242,6 +242,9 @@ MonoBehaviour:
   - Oh, look! Your character is animating on her own, and it looks like she wants
     to go right. What should you do?
   moveCommand: right
+  onTimeTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &355869034
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -307,6 +310,135 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.870001, y: -15.739999, z: 0.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &357936813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 357936815}
+  - component: {fileID: 357936814}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &357936814
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357936813}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9fd7b3170df067744b7e58f87141f350, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9fd7b3170df067744b7e58f87141f350, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.29
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &357936815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357936813}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -802,6 +934,9 @@ MonoBehaviour:
     question is 42. '
   - This is all you're getting.
   moveCommand: 
+  onTimeTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &492501736
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1823,6 +1958,9 @@ MonoBehaviour:
   - "But look at it another way\u2014 isn't this a form of interaction? "
   - A silent dialogue between you and the game.
   moveCommand: 
+  onTimeTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &893716907
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1975,6 +2113,8 @@ MonoBehaviour:
   rightCommand: 0
   leftCommand: 0
   sitting: 0
+  stepSound: {fileID: 357936814}
+  stepInterval: 0.4
 --- !u!61 &940868834
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2143,7 +2283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e63e64098c4c6a4e927e8cbacf7fdbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 940868829}
+  player: {fileID: 0}
 --- !u!61 &953627531
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2503,6 +2643,9 @@ MonoBehaviour:
   - 'But maybe this is the true essence of the game:'
   - 'To choose, to wait, and then to witness the outcome. '
   moveCommand: 
+  onTimeTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &1093250746
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2706,7 +2849,7 @@ Transform:
   m_GameObject: {fileID: 1101244051}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.4399986, y: -0.027950048, z: -10}
+  m_LocalPosition: {x: -3.9344206, y: -0.027950048, z: -10}
   m_LocalScale: {x: 0.75, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3253,6 +3396,135 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1352235340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1352235342}
+  - component: {fileID: 1352235341}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1352235341
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352235340}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 25d23a5ab4ad97d4b8fc349ee3a08af4, type: 3}
+  m_Resource: {fileID: 8300000, guid: 25d23a5ab4ad97d4b8fc349ee3a08af4, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1352235342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352235340}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1378240963
 GameObject:
   m_ObjectHideFlags: 0
@@ -3360,7 +3632,7 @@ Transform:
   m_GameObject: {fileID: 1446957086}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000019073486, y: -2.53205, z: 0}
+  m_LocalPosition: {x: -0.674106, y: -2.53205, z: 0}
   m_LocalScale: {x: 1.3333334, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3893,6 +4165,7 @@ MonoBehaviour:
   lines:
   - Touched
   moveCommand: 
+  forceMoveDuration: 10
 --- !u!212 &1593152799
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3999,6 +4272,9 @@ MonoBehaviour:
   - Perhaps you're pondering life.
   - 'Or maybe you''re just holding a cup of coffee, too lazy to act. '
   moveCommand: 
+  onTimeTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &1649115012
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9563,6 +9839,9 @@ MonoBehaviour:
   - Have you noticed that you're no longer contemplating "what to do"
   - but rather anticipating some meaning?
   moveCommand: 
+  onTimeTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &1880418748
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14641,6 +14920,9 @@ MonoBehaviour:
   - In other games, that might unlock an "achievement" for you,
   - but we don't have the budget for achievements.
   moveCommand: 
+  onTimeTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &2121760512
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14745,6 +15027,9 @@ MonoBehaviour:
   lines:
   - 'Or perhaps, you just want to see what happens when you do nothing. '
   moveCommand: 
+  onTimeTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &2130854247
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14957,3 +15242,5 @@ SceneRoots:
   - {fileID: 841147781}
   - {fileID: 3592371994183379426}
   - {fileID: 1920151891}
+  - {fileID: 1352235342}
+  - {fileID: 357936815}
